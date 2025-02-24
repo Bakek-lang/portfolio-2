@@ -1,5 +1,7 @@
 # Portfolio 2
 
+![Project Preview](src/assets/portfolio-2.png)
+
 This portfolio page showcases three projects from the second year at Noroff: Semester Project 2, JavaScript Frameworks CA, and Project Exam 2. Each project is displayed as a card, featuring the project title, a brief description, a screenshot of the project in action, and links to the GitHub repository and live site. The page serves as a centralized showcase of past work, providing an overview of these key projects.
 
 ## Built With
