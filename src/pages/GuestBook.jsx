@@ -20,6 +20,11 @@ export default function GuestBook() {
     fetchUser();
   }, []);
 
+  const handleLogout = async () => {
+    await logout();
+    setUser(null);
+  };
+
   return (
     <div className="flex flex-col items-center">
       <h1>Guestbook</h1>
@@ -27,7 +32,7 @@ export default function GuestBook() {
         <div>
           <p>Welcome, {user.name} </p>
           <button
-            onClick={logout}
+            onClick={handleLogout}
             className="bg-black text-white rounded-lg px-3 py-2 cursor-pointer"
           >
             Logout
