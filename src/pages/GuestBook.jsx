@@ -87,7 +87,16 @@ export default function GuestBook() {
               )}
             </div>
             <p>{comment.text}</p>
-            <small>{new Date(comment.createdAt).toLocaleString()}</small>
+            <p className="text-sm">
+              {new Date(comment.createdAt).toLocaleString("en-GB", {
+                day: "numeric",
+                month: "short",
+                year: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: false,
+              })}
+            </p>
           </div>
         ))}
       </div>
