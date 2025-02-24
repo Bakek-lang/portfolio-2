@@ -1,6 +1,6 @@
 export default function Card({ project }) {
   return (
-    <div className="border border-gray-400 p-4 w-full rounded-lg ">
+    <div className="border border-gray-400 p-4 w-full rounded-lg max-w-lg ">
       <div>
         <img src={project.image} alt="" />
       </div>
