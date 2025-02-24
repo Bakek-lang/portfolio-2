@@ -23,7 +23,7 @@ export const getUserComment = async (userId) => {
       [Query.equal("userId", userId)]
     );
     console.log("this is response from getUserComment: ", response);
-    return response.documents;
+    return response;
   } catch (error) {
     console.error("Error fetching user comment: ", error);
     return [];
@@ -33,6 +33,7 @@ export const getUserComment = async (userId) => {
 export const postComment = async (commentData) => {
   try {
     const existing = await getUserComment(commentData.userId);
+    console.log("existing: ", existing);
     if (existing.documents && existing.total > 0) {
       throw new Error("You have already posted a comment.");
     }
