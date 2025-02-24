@@ -5,19 +5,25 @@ import {
   login,
   logout,
 } from "../js/appwriteAuth";
+import { getComments } from "../appwriteDB";
+import CommentForm from "../components/CommentForm";
 
 export default function GuestBook() {
   const [user, setUser] = useState(null);
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    const fetchUser = async () => {
+    const init = async () => {
       await handleOAuthCallBack();
       const userData = await checkUserSession();
       console.log("Fetched User: ", userData);
       setUser(userData);
+
+      const fetchedComments = await getComments();
+      setComments(fetchedComments);
     };
 
-    fetchUser();
+    init();
   }, []);
 
   const handleLogout = async () => {
@@ -25,18 +31,24 @@ export default function GuestBook() {
     setUser(null);
   };
 
+  function addComment(newComment) {
+    setComments((prev) => [newComment, ...prev]);
+  }
+
   return (
     <div className="flex flex-col items-center">
       <h1>Guestbook</h1>
+
       {user ? (
         <div>
-          <p>Welcome, {user.name} </p>
+          <p>Welcome, {user.name}</p>
           <button
             onClick={handleLogout}
             className="bg-black text-white rounded-lg px-3 py-2 cursor-pointer"
           >
             Logout
           </button>
+          <CommentForm user={user} onCommentPosted={addComment} />
         </div>
       ) : (
         <button
@@ -46,6 +58,18 @@ export default function GuestBook() {
           Login with GitHub
         </button>
       )}
+
+      <div className="mt-4 w-full max-w-lg">
+        {comments.map((comment) => (
+          <div key={comment.$id} className="border p-2 my-2">
+            <div className="flex items-center">
+              <span className="font-bold">{comment.username}</span>
+            </div>
+            <p>{comment.text}</p>
+            <small>{new Date(comment.createdAt).toLocaleString()}</small>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
