@@ -21,10 +21,14 @@ export default function Card({ project }) {
         </div>
         <div className="flex justify-around mt-2">
           <button className="py-2 px-3 bg-blue-400 text-white rounded-lg">
-            <a href={project.github_link}>Github</a>
+            <a href={project.github_link} target="_blank">
+              Github
+            </a>
           </button>
           <button className="py-2 px-3 bg-blue-400 text-white rounded-lg">
-            <a href={project.demo_link}>Live demo</a>
+            <a href={project.demo_link} target="_blank">
+              Live demo
+            </a>
           </button>
         </div>
       </div>

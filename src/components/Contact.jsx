@@ -1,8 +1,8 @@
 export default function Contact() {
   return (
-    <div>
+    <div className="mt-6 ">
       {" "}
-      <h3 className="text-3xl text-center">Contact</h3>
+      <h3 className="text-3xl text-center mb-2">Contact</h3>
       <div className="flex justify-center flex-col ">
         <div className="flex justify-center items-center gap-2 ">
           <img
@@ -11,8 +11,11 @@ export default function Contact() {
             className="w-12 h-12"
           />
           <span>LinkedIn:</span>
-          <p>
-            <a href="https://www.linkedin.com/in/henrik-bakke-76b716294/">
+          <p className="underline">
+            <a
+              href="https://www.linkedin.com/in/henrik-bakke-76b716294/"
+              target="_blank"
+            >
               Henrik Bakke
             </a>
           </p>
@@ -24,8 +27,10 @@ export default function Contact() {
             className="w-12 h-12"
           />
           <span>Github:</span>
-          <p>
-            <a href="https://github.com/Bakek-lang">Bakek-Lang</a>
+          <p className="underline">
+            <a href="https://github.com/Bakek-lang" target="_blank">
+              Bakek-Lang
+            </a>
           </p>
         </div>
       </div>
