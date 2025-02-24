@@ -5,7 +5,7 @@ import {
   login,
   logout,
 } from "../js/appwriteAuth";
-import { getComments } from "../appwriteDB";
+import { deleteComment, getComments } from "../appwriteDB";
 import CommentForm from "../components/CommentForm";
 
 export default function GuestBook() {
@@ -35,6 +35,17 @@ export default function GuestBook() {
     setComments((prev) => [newComment, ...prev]);
   }
 
+  async function handleDeleteComment(commentId) {
+    try {
+      await deleteComment(commentId);
+      setComments((prev) =>
+        prev.filter((comment) => comment.$id !== commentId)
+      );
+    } catch (error) {
+      console.error("Failed to delete comment:", error);
+    }
+  }
+
   return (
     <div className="flex flex-col items-center">
       <h1>Guestbook</h1>
@@ -62,8 +73,18 @@ export default function GuestBook() {
       <div className="mt-4 w-full max-w-lg">
         {comments.map((comment) => (
           <div key={comment.$id} className="border p-2 my-2">
-            <div className="flex items-center">
-              <span className="font-bold">{comment.username}</span>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+                <span className="font-bold">{comment.username}</span>
+              </div>
+              {user && comment.userId === user.$id && (
+                <button
+                  onClick={() => handleDeleteComment(comment.$id)}
+                  className="text-red-500 text-sm cursor-pointer"
+                >
+                  Delete
+                </button>
+              )}
             </div>
             <p>{comment.text}</p>
             <small>{new Date(comment.createdAt).toLocaleString()}</small>

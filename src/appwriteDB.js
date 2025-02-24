@@ -48,3 +48,17 @@ export const postComment = async (commentData) => {
     throw error;
   }
 };
+
+export const deleteComment = async (documentId) => {
+  try {
+    const response = await databases.deleteDocument(
+      import.meta.env.VITE_APPWRITE_DATABASE_ID,
+      import.meta.env.VITE_APPWRITE_GUESTBOOK_COLLECTION_ID,
+      documentId
+    );
+    return response;
+  } catch (error) {
+    console.error("Error deleting comment:", error);
+    throw error;
+  }
+};
