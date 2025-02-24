@@ -7,8 +7,10 @@ function App() {
   return (
     <div>
       <Header />
-      <Projects />
-      <Contact />
+      <main className="flex-grow min-h-screen max-w-screen-xl mx-auto">
+        <Projects />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );
