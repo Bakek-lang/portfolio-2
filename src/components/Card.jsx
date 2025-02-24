@@ -1,12 +1,24 @@
 export default function Card({ project }) {
   return (
-    <div className="border border-gray-400 p-4 w-full rounded-lg max-w-lg ">
+    <div className="p-4 w-full rounded-lg max-w-3xl flex flex-col shadow-2xl  ">
       <div>
         <img src={project.image} alt="" />
       </div>
       <div>
         <h2 className="text-2xl mt-2">{project.title}</h2>
-        <span className="text-wrap  ">{project.description}</span>
+        <div>
+          <span className="text-wrap    ">{project.description}</span>
+        </div>
+        <div className="mt-3 flex gap-3">
+          {project.made_with.map((icon, index) => (
+            <img
+              key={index}
+              src={icon}
+              alt="Tech Used"
+              className="w-10 h-10 "
+            />
+          ))}
+        </div>
         <div className="flex justify-around mt-2">
           <button className="py-2 px-3 bg-blue-400 text-white rounded-lg">
             <a href={project.github_link}>Github</a>
