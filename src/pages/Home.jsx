@@ -1,11 +1,11 @@
-import Contact from "../components/Contact";
+import LowPage from "../components/LowPage";
 import Projects from "../components/Projects";
 
 export default function Home() {
   return (
     <>
       <Projects />
-      <Contact />
+      <LowPage />
     </>
   );
 }
