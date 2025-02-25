@@ -25,10 +25,10 @@ export default function GuestBook() {
       const fetchedComments = await getComments();
       setComments(fetchedComments);
 
-      if (userData) {
+      /*  if (userData) {
         const userComments = await getUserComment(userData.$id);
         setUserHasComment(userComments.total > 0);
-      }
+      } */
       setLoading(false);
     };
 
@@ -126,7 +126,7 @@ export default function GuestBook() {
         </div>
       )}
 
-      <div className="mt-4 border border-red-500 rounded-xl  w-full max-w-3xl ">
+      <div className="mt-4 rounded-xl  w-full max-w-3xl ">
         <h2 className="text-white font-bold text-4xl p-4">Comments</h2>
         <div className="w-full border-b border-gray-300"></div>
         {comments.map((comment) => (

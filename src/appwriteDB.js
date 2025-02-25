@@ -37,9 +37,9 @@ export const postComment = async (commentData) => {
   try {
     const existing = await getUserComment(commentData.userId);
     console.log("existing: ", existing);
-    if (existing.documents && existing.total > 0) {
+    /* if (existing.documents && existing.total > 0) {
       throw new Error("You have already posted a comment.");
-    }
+    } */
     const response = await databases.createDocument(
       import.meta.env.VITE_APPWRITE_DATABASE_ID,
       import.meta.env.VITE_APPWRITE_GUESTBOOK_COLLECTION_ID,
