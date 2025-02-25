@@ -34,7 +34,7 @@ export default function CommentForm({ user, onCommentPosted }) {
       />
       <button
         type="submit"
-        className="mt-2 bg-black text-white rounded px-4 py-2 cursor-pointer"
+        className="mt-2 bg-green-600 text-white rounded-lg px-4 py-2 cursor-pointer"
       >
         Submit Comment
       </button>

@@ -5,12 +5,13 @@ import {
   login,
   logout,
 } from "../js/appwriteAuth";
-import { deleteComment, getComments } from "../appwriteDB";
+import { deleteComment, getComments, getUserComment } from "../appwriteDB";
 import CommentForm from "../components/CommentForm";
 
 export default function GuestBook() {
   const [user, setUser] = useState(null);
   const [comments, setComments] = useState([]);
+  const [userHasComment, setUserHasComment] = useState(false);
 
   useEffect(() => {
     const init = async () => {
@@ -21,6 +22,11 @@ export default function GuestBook() {
 
       const fetchedComments = await getComments();
       setComments(fetchedComments);
+
+      if (userData) {
+        const userComments = await getUserComment(userData.$id);
+        setUserHasComment(userComments.total > 0);
+      }
     };
 
     init();
@@ -33,6 +39,7 @@ export default function GuestBook() {
 
   function addComment(newComment) {
     setComments((prev) => [newComment, ...prev]);
+    setUserHasComment(true);
   }
 
   async function handleDeleteComment(commentId) {
@@ -59,7 +66,19 @@ export default function GuestBook() {
           >
             Logout
           </button>
-          <CommentForm user={user} onCommentPosted={addComment} />
+          {!userHasComment ? (
+            <CommentForm user={user} onCommentPosted={addComment} />
+          ) : (
+            <div className="p-4 bg-yellow-100 border border-yellow-300 rounded">
+              <p className="text-gray-700">
+                You have already posted a comment.
+              </p>
+              <p className="text-gray-600 text-sm">
+                If you want to change it, please delete your current comment
+                first.
+              </p>
+            </div>
+          )}
         </div>
       ) : (
         <button

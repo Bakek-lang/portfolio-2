@@ -16,6 +16,9 @@ export const getComments = async () => {
 };
 
 export const getUserComment = async (userId) => {
+  if (!userId) {
+    return { documents: [], total: 0 };
+  }
   try {
     const response = await databases.listDocuments(
       import.meta.env.VITE_APPWRITE_DATABASE_ID,
