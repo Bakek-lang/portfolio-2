@@ -25,10 +25,10 @@ export default function GuestBook() {
       const fetchedComments = await getComments();
       setComments(fetchedComments);
 
-      /*  if (userData) {
+      if (userData) {
         const userComments = await getUserComment(userData.$id);
         setUserHasComment(userComments.total > 0);
-      } */
+      }
       setLoading(false);
     };
 
@@ -92,14 +92,9 @@ export default function GuestBook() {
       <h1 className="text-4xl text-white ">Guestbook</h1>
 
       {user ? (
-        <div className="flex flex-col justify-center items-start gap-2 ">
+        <div className="flex flex-col w-full max-w-2xl gap-2 ">
           <p className="font-bold text-white">Signed in as {user.name}</p>
-          <button
-            onClick={handleLogout}
-            className="bg-white text-black rounded-lg px-3 py-2 cursor-pointer"
-          >
-            Logout
-          </button>
+
           {!userHasComment ? (
             <CommentForm user={user} onCommentPosted={addComment} />
           ) : (
@@ -113,6 +108,12 @@ export default function GuestBook() {
               </p>
             </div>
           )}
+          <button
+            onClick={handleLogout}
+            className="bg-white text-black rounded-lg px-3 py-2 cursor-pointer w-25"
+          >
+            Logout
+          </button>
         </div>
       ) : (
         <div className="bg-white flex justify-center items-center px-3 py-2 rounded-lg">

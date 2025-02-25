@@ -24,16 +24,16 @@ export default function CommentForm({ user, onCommentPosted }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-lg">
+    <form onSubmit={handleSubmit} className="flex gap-2">
       <textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Your comment..."
-        className="w-full p-2 border rounded"
+        className="w-2/3 p-2 border rounded text-white"
       />
       <button
         type="submit"
-        className="mt-2 bg-green-600 text-white rounded-lg px-4 py-2 cursor-pointer"
+        className="w-1/3 bg-purple-700 text-white rounded-full px-3 py-2 cursor-pointer"
       >
         Submit Comment
       </button>
