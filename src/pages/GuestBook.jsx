@@ -7,6 +7,7 @@ import {
 } from "../js/appwriteAuth";
 import { deleteComment, getComments, getUserComment } from "../appwriteDB";
 import CommentForm from "../components/CommentForm";
+import { FaGithub } from "react-icons/fa";
 
 export default function GuestBook() {
   const [user, setUser] = useState(null);
@@ -114,17 +115,20 @@ export default function GuestBook() {
           )}
         </div>
       ) : (
-        <button
-          onClick={login}
-          className="bg-black text-white rounded-lg px-3 py-2 cursor-pointer"
-        >
-          Login with GitHub
-        </button>
+        <div className="bg-black flex justify-center items-center px-3 py-2 rounded-lg">
+          <FaGithub color="white" size={25} />
+          <button
+            onClick={login}
+            className="bg-black text-white rounded-lg px-3 py-2 cursor-pointer"
+          >
+            Sign in with GitHub
+          </button>
+        </div>
       )}
 
       <div className="mt-4 w-full max-w-lg">
         {comments.map((comment) => (
-          <div key={comment.$id} className="border p-2 my-2">
+          <div key={comment.$id} className="border border-gray-200 p-2 my-2">
             <div className="flex items-center justify-between">
               <div className="flex items-center">
                 <span className="font-bold">{comment.username}</span>
