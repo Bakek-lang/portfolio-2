@@ -9,7 +9,7 @@ export default function Header() {
         </NavLink>
 
         <NavLink to="/guestbook">
-          <p className="text-3xl text-white">Guestbook</p>
+          <p className="text-xl text-white">Guestbook</p>
         </NavLink>
       </div>
     </header>

@@ -116,7 +116,7 @@ export default function GuestBook() {
           </button>
         </div>
       ) : (
-        <div className="bg-white flex justify-center items-center px-3 py-2 rounded-lg">
+        <div className="bg-white flex justify-center items-center px-3 py-2 rounded-lg mt-4">
           <FaGithub size={25} />
           <button
             onClick={login}
