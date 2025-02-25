@@ -92,8 +92,8 @@ export default function GuestBook() {
       <h1 className="text-4xl ">Guestbook</h1>
 
       {user ? (
-        <div>
-          <p>Welcome, {user.name}</p>
+        <div className="flex flex-col justify-center items-start gap-2 ">
+          <p className="font-bold">Signed in as {user.name}</p>
           <button
             onClick={handleLogout}
             className="bg-black text-white rounded-lg px-3 py-2 cursor-pointer"
@@ -115,18 +115,19 @@ export default function GuestBook() {
           )}
         </div>
       ) : (
-        <div className="bg-black flex justify-center items-center px-3 py-2 rounded-lg">
-          <FaGithub color="white" size={25} />
+        <div className="bg-white flex justify-center items-center px-3 py-2 rounded-lg">
+          <FaGithub size={25} />
           <button
             onClick={login}
-            className="bg-black text-white rounded-lg px-3 py-2 cursor-pointer"
+            className="bg-white text-black rounded-lg px-3 py-2 cursor-pointer"
           >
             Sign in with GitHub
           </button>
         </div>
       )}
 
-      <div className="mt-4 w-full max-w-lg">
+      <div className="mt-4 ">
+        <h2>Comments</h2>
         {comments.map((comment) => (
           <div key={comment.$id} className="border border-gray-200 p-2 my-2">
             <div className="flex items-center justify-between">
