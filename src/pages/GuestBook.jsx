@@ -7,7 +7,7 @@ import {
 } from "../js/appwriteAuth";
 import { deleteComment, getComments, getUserComment } from "../appwriteDB";
 import CommentForm from "../components/CommentForm";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaRegTrashAlt } from "react-icons/fa";
 
 export default function GuestBook() {
   const [user, setUser] = useState(null);
@@ -93,10 +93,10 @@ export default function GuestBook() {
 
       {user ? (
         <div className="flex flex-col justify-center items-start gap-2 ">
-          <p className="font-bold">Signed in as {user.name}</p>
+          <p className="font-bold text-white">Signed in as {user.name}</p>
           <button
             onClick={handleLogout}
-            className="bg-black text-white rounded-lg px-3 py-2 cursor-pointer"
+            className="bg-white text-black rounded-lg px-3 py-2 cursor-pointer"
           >
             Logout
           </button>
@@ -126,10 +126,11 @@ export default function GuestBook() {
         </div>
       )}
 
-      <div className="mt-4 ">
-        <h2 className="text-white">Comments</h2>
+      <div className="mt-4 border border-red-500 rounded-xl  w-full max-w-3xl ">
+        <h2 className="text-white font-bold text-4xl p-4">Comments</h2>
+        <div className="w-full border-b border-gray-300"></div>
         {comments.map((comment) => (
-          <div key={comment.$id} className="border border-gray-200 p-2 my-2">
+          <div key={comment.$id} className="  p-4 my-2">
             <div className="flex items-center justify-between">
               <div className="flex items-center">
                 <span className="font-bold text-white">{comment.username}</span>
@@ -137,14 +138,14 @@ export default function GuestBook() {
               {user && comment.userId === user.$id && (
                 <button
                   onClick={() => handleDeleteComment(comment.$id)}
-                  className="text-red-500 text-sm cursor-pointer"
+                  className="text-white text-sm cursor-pointer"
                 >
-                  Delete
+                  <FaRegTrashAlt size={18} />
                 </button>
               )}
             </div>
-            <p className="text-white">{comment.text}</p>
-            <p className="text-sm text-white">
+            <p className="text-gray-300">{comment.text}</p>
+            <p className="text-sm text-gray-400">
               {new Date(comment.createdAt).toLocaleString("en-GB", {
                 day: "numeric",
                 month: "short",

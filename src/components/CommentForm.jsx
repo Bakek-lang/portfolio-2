@@ -25,7 +25,6 @@ export default function CommentForm({ user, onCommentPosted }) {
 
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-lg">
-      <p>Posting as: {user.name}</p>
       <textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
