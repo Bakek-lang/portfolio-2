@@ -89,7 +89,7 @@ export default function GuestBook() {
 
   return (
     <div className="flex flex-col items-center">
-      <h1 className="text-4xl text-white ">Guestbook</h1>
+      <h1 className="text-4xl text-white mt-4">Guestbook</h1>
 
       {user ? (
         <div className="flex flex-col w-full max-w-2xl gap-2 ">
