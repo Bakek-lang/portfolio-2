@@ -20,12 +20,12 @@ export default function Card({ project }) {
           ))}
         </div>
         <div className="flex justify-around mt-2">
-          <button className="py-2 px-3 bg-purple-700 text-white rounded-lg hover:bg-blue-600">
+          <button className="py-2 px-3 bg-purple-700 text-white rounded-lg hover:bg-purple-800">
             <a href={project.github_link} target="_blank">
               Github
             </a>
           </button>
-          <button className="py-2 px-3 bg-purple-700 text-white rounded-lg hover:bg-blue-600">
+          <button className="py-2 px-3 bg-purple-700 text-white rounded-lg hover:bg-purple-800">
             <a href={project.demo_link} target="_blank">
               Live demo
             </a>
