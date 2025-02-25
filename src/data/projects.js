@@ -1,6 +1,6 @@
-import auctionHouseImage from "../assets/auction-house.png";
-import fefImage from "../assets/fef.png";
-import holidazeImage from "../assets/holidaze.png";
+import auctionHouseImage from "../assets/AuctionHouse_preview.png";
+import fefImage from "../assets/Fef_preview.png";
+import holidazeImage from "../assets/Holidaze_preview.png";
 
 const projects = [
   {
