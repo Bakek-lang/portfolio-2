@@ -89,7 +89,7 @@ export default function GuestBook() {
 
   return (
     <div className="flex flex-col items-center">
-      <h1 className="text-4xl ">Guestbook</h1>
+      <h1 className="text-4xl text-white ">Guestbook</h1>
 
       {user ? (
         <div className="flex flex-col justify-center items-start gap-2 ">
@@ -127,12 +127,12 @@ export default function GuestBook() {
       )}
 
       <div className="mt-4 ">
-        <h2>Comments</h2>
+        <h2 className="text-white">Comments</h2>
         {comments.map((comment) => (
           <div key={comment.$id} className="border border-gray-200 p-2 my-2">
             <div className="flex items-center justify-between">
               <div className="flex items-center">
-                <span className="font-bold">{comment.username}</span>
+                <span className="font-bold text-white">{comment.username}</span>
               </div>
               {user && comment.userId === user.$id && (
                 <button
@@ -143,8 +143,8 @@ export default function GuestBook() {
                 </button>
               )}
             </div>
-            <p>{comment.text}</p>
-            <p className="text-sm">
+            <p className="text-white">{comment.text}</p>
+            <p className="text-sm text-white">
               {new Date(comment.createdAt).toLocaleString("en-GB", {
                 day: "numeric",
                 month: "short",
