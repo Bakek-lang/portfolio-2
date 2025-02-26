@@ -22,8 +22,6 @@ h(left)        l(right)
 w(word) b(back one word) e(end of a word)
 ```
 
-![B Movement Key](../gifs/movement_b.gif)
-
 - Line navigation: "0" beginning of line, "$" end of line
 
 ```plaintext
@@ -90,11 +88,11 @@ I have remapped "J" and "K" to be equivilant of 5j and 5k to easier go up and do
 
 I often use different shortcuts to navigate around in VSCode, having it in combination with my VIM configurations makes everything working like a charm.
 
-First of all I have made a more minimalistic look in VSCode because I dont like distractions while working, so the left sidebar that you probably have, I have removed that completely. And then I use command + b to open/close the explorer. If I want to change it to be the source control I press "<leader>p" to open the command palette, and then search for source control, or whatever you want to look up. When I'm done with it I press command + b to close it so that I can just have my files opened.
+First of all I have made a more minimalistic look in VSCode because I dont like distractions while working, so the left sidebar that you probably have, I have removed that completely. And then I use command + b to open/close the explorer. If I want to change it to be the source control I press "< LEADER > + p" to open the command palette, and then search for source control, or whatever you want to look up. When I'm done with it I press command + b to close it so that I can just have my files opened.
 
 I also use command + w to close files I'm done with.
 
-I use "<leader>tn" to switch to the next tab, change the n with p for previous tab. If I have multiple tabs open I can use control + h/j/k/l to change to the different tabs in splits.
+I use "< LEADER > + tn" to switch to the next tab, change the n with p for previous tab. If I have multiple tabs open I can use control + h/j/k/l to change to the different tabs in splits.
 
 When making a new file inside of the folder I'm currently in I do ":e" and then the filename. This will open that file, if it doesnt exist it will make it.
 
