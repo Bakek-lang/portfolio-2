@@ -1,11 +1,16 @@
-import testMarkdown from "../markdown/test123.md?raw";
+import htmlVim from "../markdown/html_vim.md?raw";
+import vscodeVim from "../markdown/vscode_vim.md?raw";
 
 const blogPosts = [
   {
-    id: "test-post",
-    title: "Test Blog Post",
-    excerpt: "This is a test blog post.",
-    content: testMarkdown,
+    id: "html-vim",
+    title: "HTML VIM Blogpost",
+    content: htmlVim,
+  },
+  {
+    id: "vscode-vim",
+    title: "Introduction to VSCode VIM",
+    content: vscodeVim,
   },
 ];
 
