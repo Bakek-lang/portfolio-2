@@ -6,26 +6,22 @@ export const checkUserSession = async () => {
     return user;
   } catch (error) {
     if (error.code === 401) {
-      console.log("the error code was 401");
       return null;
     }
-    console.log("Error getting account status: ", error);
+    console.error("Error getting account status: ", error);
     return null;
   }
 };
 
 export const login = async () => {
   const baseUrl = window.location.origin;
-  console.log("account", account);
 
   try {
-    const response = await account.createOAuth2Token(
+    await account.createOAuth2Token(
       "github",
       `${baseUrl}/guestbook`,
       `${baseUrl}/guestbook`
     );
-
-    console.log("OAuth response: ", response);
   } catch (error) {
     console.error("Login error: ", error);
   }
@@ -44,13 +40,9 @@ export const handleOAuthCallBack = async () => {
   const secret = params.get("secret");
   const userId = params.get("userId");
 
-  console.log("secret: ", secret);
-  console.log("UserId:", userId);
-
   if (secret) {
     try {
       await account.createSession(userId, secret);
-      console.log("Session created successfully!");
 
       window.history.replaceState({}, document.title, window.location.pathname);
     } catch (error) {

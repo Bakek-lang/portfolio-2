@@ -19,7 +19,6 @@ export default function GuestBook() {
     const init = async () => {
       await handleOAuthCallBack();
       const userData = await checkUserSession();
-      console.log("Fetched User: ", userData);
       setUser(userData);
 
       const fetchedComments = await getComments();
