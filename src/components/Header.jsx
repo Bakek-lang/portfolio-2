@@ -7,10 +7,15 @@ export default function Header() {
         <NavLink to="/">
           <h1 className="text-3xl text-white font-bold p-4">Henrik Bakke</h1>
         </NavLink>
+        <div className="flex gap-4">
+          <NavLink to="/blog">
+            <p className="text-xl text-white">Blog</p>
+          </NavLink>
 
-        <NavLink to="/guestbook">
-          <p className="text-xl text-white">Guestbook</p>
-        </NavLink>
+          <NavLink to="/guestbook">
+            <p className="text-xl text-white">Guestbook</p>
+          </NavLink>
+        </div>
       </div>
     </header>
   );
