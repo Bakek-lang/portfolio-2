@@ -9,7 +9,7 @@ export default function BlogPost() {
 
   if (!blogPost) return <div className="text-white p-4">Post not found.</div>;
   return (
-    <article className="prose prose-invert   p-4 max-w-screen-xl mx-auto ">
+    <article className="prose prose-invert p-4 max-w-screen-xl mx-auto ">
       <Markdown
         options={{
           overrides: {
