@@ -22,7 +22,7 @@ When I need to find a file, I simply press Cmd + P (or Ctrl + P on Windows) to o
 
 ## VSCode Vim for efficient keyboard navigation
 
-Another game-changer in my workflow is the **Vim extension** (by vscodevim). This extension lets me navigate and edit files using only the keyboard, eliminating the need for a mouse. The familiar Vim keybindings make moving around the file and performing edits incredibly fast—and it’s fun too! If you’re curious about how it works, I am going to write a separate post detailing its benefits and setup. It’s a fantastic way to boost productivity once you get used to it.
+Another game-changer in my workflow is the **Vim extension** (by vscodevim). This extension lets me navigate and edit files using only the keyboard, eliminating the need for a mouse. The Vim keybindings make moving around the file and performing edits incredibly fast—and it’s fun too! If you’re curious about how it works, I am going to write a separate post detailing its benefits and setup. It’s a fantastic way to boost productivity once you get used to it.
 
 ![VSCode Vim Plugin](/assets/vscode-vim.png)
 

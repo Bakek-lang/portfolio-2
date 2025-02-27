@@ -1,6 +1,7 @@
 /* import htmlVim from "../markdown/html_vim.md?raw";
 import vscodeVim from "../markdown/vscode_vim.md?raw"; */
 import myWorkflow from "../markdown/my_workflow.md?raw";
+import createBlog from "../markdown/this_blog.md?raw";
 
 const blogPosts = [
   {
@@ -8,6 +9,12 @@ const blogPosts = [
     title: "My workflow",
     content: myWorkflow,
     created: "Feb 26, 2025",
+  },
+  {
+    id: "this-blog",
+    title: "Create a Blog",
+    content: createBlog,
+    created: "Feb 27, 2025",
   },
   /*   {
     id: "html-vim",
