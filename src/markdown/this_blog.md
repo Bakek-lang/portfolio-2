@@ -52,6 +52,7 @@ Each link routes to a URL like "/blog/test-post", where "test-post" is the ID of
 ## The Array of Blog Posts
 
 ```js
+// blogPosts.js
 import myWorkflow from "../markdown/my_workflow.md?raw";
 import createBlog from "../markdown/this_blog.md?raw";
 
@@ -80,6 +81,7 @@ This array stores blog post data, with each post represented as an object contai
 For the individual blog post page, I used React Router’s **useParams** hook to grab the ID from the URL. Then, I looked up the matching post in my array. I used **Markdown-to-JSX** to render the Markdown content and added a custom override to render code blocks with React-Syntax-Highlighter.
 
 ```jsx
+// BlogPost.jsx
 import Markdown from "markdown-to-jsx";
 import CodeBlock from "./CodeBlock";
 import { useParams } from "react-router-dom";
@@ -110,26 +112,79 @@ export default function BlogPost() {
 
 ## The Custom Code Block Component
 
-To handle code blocks, I created a CodeBlock component that uses **React-Syntax-Highlighter**. This component extracts the language from the code block’s class name (for example, language-jsx becomes jsx) and applies a theme.
+To handle code blocks, I created a CodeBlock component using **react-syntax-highlighter**. This component extracts the language from the code block’s class name by removing the "language-" or "lang-" prefix (e.g., "language-jsx" becomes "jsx"). It then applies the selected language and a predefined theme (tomorrow) to SyntaxHighlighter, ensuring proper syntax highlighting. Any additional props are forwarded for flexibility.
 
 ```jsx
 // CodeBlock.jsx
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import {
-  tomorrow,
-  vscDarkPlus,
-} from "react-syntax-highlighter/dist/esm/styles/prism";
+import { tomorrow } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 export default function CodeBlock({ className, children, ...props }) {
   const language = className ? className.replace(/^(lang|language)-/, "") : "";
-  console.log("this is language: ", language);
-  console.log("this is classname: ", className);
 
-  const style = language === "terminal" ? vscDarkPlus : tomorrow;
   return (
-    <SyntaxHighlighter language={language} style={style} {...props}>
+    <SyntaxHighlighter language={language} style={tomorrow} {...props}>
       {children}
     </SyntaxHighlighter>
   );
 }
 ```
+
+## 5. Handling Assets and Styling
+
+Since Tailwind CSS is utility‑first, the default HTML elements from Markdown have no styles. To address this, I used the Tailwind Typography plugin (with the prose and prose-invert classes) to style my blog content.
+
+### Setting Up the Typography Plugin
+
+Instead of modifying my tailwind.config.js, I simply installed the plugin via npm and added an import directly in my main CSS file:
+
+#### 1. Installation
+
+Run the following command to install the Typography plugin:
+
+```bash
+npm install @tailwindcss/typography
+```
+
+#### 2. Importing the Plugin
+
+In my index.css(or main CSS file), I added the following line to include the plugin:
+
+```css
+@plugin "@tailwindcss/typography";
+```
+
+This line integrates the Typography styles into my project without the need for extra configuration.
+
+### Applying Typography Styles
+
+To use the typography styles, simply wrap your Markdown-rendered content in a container with the **prose** class. For dark mode, you can use **prose-invert**:
+
+```jsx
+<div className="prose prose-invert">
+  <Markdown>{blogPost.content}</Markdown>
+</div>
+```
+
+This approach ensures a consistent and readable look for blog posts without requiring custom classes.
+
+### Managing Images
+
+Remember, when using Vite, relative paths in Markdown might not work as expected. For images it`s best to put them in the **public** folder and use absolute paths in your Markdown:
+
+```md
+![Example Image](/assets/example_image.png)
+```
+
+## 6. Bringing It All Together
+
+I set up React Router to handle two main routes:
+
+- **/blog** for the blog overview (the list of posts)
+- **/blog/:id** for the detailed view of each blog post
+
+This approach keeps everything organized and makes it easy to add new posts later. To add a new blog post, simply create a .md file, then add it to the blogPosts.js array with an id, title, imported content, and creation date. Each post’s content is stored as a Markdown file (imported as a raw string) and rendered with custom components for code blocks.
+
+## Conclusion
+
+By combining React, markdown-to-jsx, react-syntax-highlighter, and Tailwind CSS, I created a lightweight blog section that’s both easy to maintain and visually appealing. I hope this walkthrough helps you build your own blog with similar principles. Happy coding!
