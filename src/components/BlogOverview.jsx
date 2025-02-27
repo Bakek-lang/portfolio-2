@@ -7,7 +7,7 @@ export default function BlogOverview() {
       <h1 className="text-center text-3xl font-bold mb-8">BLOG</h1>
       <ul className="list-disc ">
         {blogPosts.map((post) => (
-          <li key={post.id}>
+          <li key={post.id} className="mt-2">
             <Link
               to={`/blog/${post.id}`}
               className="text-white hover:underline "
