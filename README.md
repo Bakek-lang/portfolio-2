@@ -12,4 +12,4 @@ This portfolio page showcases three projects from the second year at Noroff: Sem
 
 ## Deployment
 
-The project is deployed and hosted on Netlify. You can view the live version of the project at: ![Portfolio 2](https://portfolio-2-hb.netlify.app/)
+The project is deployed and hosted on Netlify. You can view the live version of the project at: [Portfolio 2](https://portfolio-2-hb.netlify.app/)
