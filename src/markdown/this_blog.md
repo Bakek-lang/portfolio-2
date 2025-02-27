@@ -8,7 +8,7 @@ I wanted a lightweight way to share ideas and tutorials without needing a full-b
 
 ## 2. Tools and Technologies
 
-Here`s what I used:
+Here's what I used:
 
 - **React** for building the UI
 - **React Router** to manage navigation between the blog overview and individual posts.
@@ -132,7 +132,7 @@ export default function CodeBlock({ className, children, ...props }) {
 
 ## 5. Handling Assets and Styling
 
-Since Tailwind CSS is utility‑first, the default HTML elements from Markdown have no styles. To address this, I used the Tailwind Typography plugin (with the prose and prose-invert classes) to style my blog content.
+Since Tailwind CSS is utility-first, the JSX elements generated from **markdown-to-jsx** have no default styling. To address this, I used the Tailwind Typography plugin (with the **prose** and **prose-invert** classes) to style my blog content.
 
 ### Setting Up the Typography Plugin
 
@@ -170,7 +170,7 @@ This approach ensures a consistent and readable look for blog posts without requ
 
 ### Managing Images
 
-Remember, when using Vite, relative paths in Markdown might not work as expected. For images it`s best to put them in the **public** folder and use absolute paths in your Markdown:
+Remember, when using Vite, relative paths in Markdown might not work as expected. For images it's best to put them in the **public** folder and use absolute paths in your Markdown:
 
 ```md
 ![Example Image](/assets/example_image.png)
