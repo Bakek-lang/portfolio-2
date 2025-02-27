@@ -6,8 +6,6 @@ import {
 
 export default function CodeBlock({ className, children, ...props }) {
   const language = className ? className.replace(/^(lang|language)-/, "") : "";
-  console.log("this is language: ", language);
-  console.log("this is classname: ", className);
 
   const style = language === "terminal" ? vscDarkPlus : tomorrow;
   return (
